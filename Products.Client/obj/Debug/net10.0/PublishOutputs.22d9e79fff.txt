@@ -1,0 +1,4 @@
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Host/wwwroot/products/wwwroot/index.html
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Host/wwwroot/products/Products.Client.runtimeconfig.json
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Host/wwwroot/products/dotnet.js
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Host/wwwroot/products/web.config

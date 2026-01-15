@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthProvider
+
+@inject NavigationManager Nav
+
+<AuthorizeView>
+    <Authorized Context="auth">
+        <div class="topbar">
+            <span>👤 @auth.User.Identity?.Name</span>
+            <button @onclick="Logout">Logout</button>
+        </div>
+    </Authorized>
+
+    <NotAuthorized>
+        <button @onclick="LoginAction">Login</button>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    async Task LoginAction()
+    {
+        Nav.NavigateTo("/login");
+    }
+
+    async Task Logout()
+    {
+        if (AuthProvider is SharedAuthenticationStateProvider jwt)
+            await jwt.LogoutAsync();
+
+        Nav.NavigateTo("/login", true);
+    }
+}

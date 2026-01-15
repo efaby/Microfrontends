@@ -1,0 +1,18 @@
+﻿<nav>
+    <ul>
+        <li>
+            <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
+        </li>
+
+        <AuthorizeView>
+            <Authorized>
+                <li>
+                    <NavLink href="/products/">Products</NavLink>
+                </li>
+                <li>
+                    <NavLink href="/orders/list-orders">Orders</NavLink>
+                </li>
+            </Authorized>
+        </AuthorizeView>
+    </ul>
+</nav>

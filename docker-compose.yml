@@ -1,0 +1,36 @@
+
+services:
+  shell:
+    build:
+      context: .
+      dockerfile: Shell.Client/Dockerfile
+    container_name: shell
+    expose:
+      - "80"
+
+  products:
+    build:
+      context: .
+      dockerfile: Products.Client/Dockerfile
+    container_name: products
+    expose:
+      - "80"
+
+  orders:
+    build:
+      context: .
+      dockerfile: Orders.Client/Dockerfile
+    container_name: orders
+    expose:
+      - "80"
+
+  gateway:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - shell
+      - products
+      - orders
