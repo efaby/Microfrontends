@@ -1,4 +1,0 @@
-/Users/fabianvilla/Documents/CoreNet10/Host/wwwroot/products/wwwroot/index.html
-/Users/fabianvilla/Documents/CoreNet10/Host/wwwroot/products/Products.Client.runtimeconfig.json
-/Users/fabianvilla/Documents/CoreNet10/Host/wwwroot/products/dotnet.js
-/Users/fabianvilla/Documents/CoreNet10/Host/wwwroot/products/web.config
