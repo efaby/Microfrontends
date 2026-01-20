@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "Shell.Client",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-4ZCdl8PjxO1S5rzrnLSA7kbYuRKjVV62vrGaDlfA3nU=",
+    "hash": "sha256-PDAS8V9/fvVt7fktex1i62D6guJzPwZ86JQSkY1J0hs=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.cs8mcre4gh.js"
@@ -1049,45 +1049,45 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "Microfrontends.Shared.Core.wasm",
-        "name": "Microfrontends.Shared.Core.wl1q89pxr5.wasm",
-        "integrity": "sha256-pCY9l7qu94YsDeRxFtXAWYfoWMRmGvbBEcLMjCQV+qs="
+        "name": "Microfrontends.Shared.Core.6lteey3oni.wasm",
+        "integrity": "sha256-SlPdAJXIVaw2dnaT/saH95C+hfbtkRC0cE1B5yePcCM="
       },
       {
         "virtualPath": "Microfrontends.Shared.UI.wasm",
-        "name": "Microfrontends.Shared.UI.far60wmi8g.wasm",
-        "integrity": "sha256-py/NkkCHLJ5aEVfsLKAGmnpyBWhWk/6Y56noyg+uisw="
+        "name": "Microfrontends.Shared.UI.5hdfi9etck.wasm",
+        "integrity": "sha256-B9grE6R1KSnaxlGG3+lPtAeddoKCoYKoXSS8/lraiTU="
       },
       {
         "virtualPath": "Shared.Auth.wasm",
-        "name": "Shared.Auth.v6x4wgbtvq.wasm",
-        "integrity": "sha256-+S4EW7uGoE6JyuCWEcm/lpS3UwFBVzxmoEtt8pCgAV8="
+        "name": "Shared.Auth.chctqp6yk8.wasm",
+        "integrity": "sha256-cCIs/VwZy6Z2J20BRh6zk0ueq/0AwbZd/WCWJ/Q9OBI="
       },
       {
         "virtualPath": "Shell.Client.wasm",
-        "name": "Shell.Client.uox42nyzri.wasm",
-        "integrity": "sha256-jmHBdy7aKd9YjGJu3J0uZOE8AYwsTwGIdVBghKyGgVI="
+        "name": "Shell.Client.e3gi3sfo6y.wasm",
+        "integrity": "sha256-Bhu2ntiKlhSDS56G3Ruxs2l9N4ECRPUiu7fk3sECOBk="
       }
     ],
     "pdb": [
       {
         "virtualPath": "Shared.Auth.pdb",
-        "name": "Shared.Auth.h56my6icpj.pdb",
-        "integrity": "sha256-W935mEFXIgjfIxZ7DW0KV/ONiOkzJ2l8c/5JdgbX8QU="
+        "name": "Shared.Auth.f6liitaslt.pdb",
+        "integrity": "sha256-ST4itG2ZKU6ot9Yj3l3IhjymYamVpuDyMmKB4ZIydos="
       },
       {
         "virtualPath": "Microfrontends.Shared.UI.pdb",
-        "name": "Microfrontends.Shared.UI.6acon1xvz0.pdb",
-        "integrity": "sha256-Lj/HvN3pl90ZqfU4qzhDfAkeAescRmHCUj6omxBWN4w="
+        "name": "Microfrontends.Shared.UI.s3kwfl9nil.pdb",
+        "integrity": "sha256-OJ9za3QLnA3I3IKdbgqeFs/0lSfxpwtOIsRlviUSzbA="
       },
       {
         "virtualPath": "Microfrontends.Shared.Core.pdb",
-        "name": "Microfrontends.Shared.Core.cxgnop926k.pdb",
-        "integrity": "sha256-kB5EfCSWL+DAT2+g8IcuUV7UYD1MM2vp86HuMsTeimM="
+        "name": "Microfrontends.Shared.Core.bf3kgmo10r.pdb",
+        "integrity": "sha256-qcmp6AqLZ9O1sVt2jj+UlBh7tb30JjL9OGSxa+Lry/E="
       },
       {
         "virtualPath": "Shell.Client.pdb",
-        "name": "Shell.Client.nnunwbp21w.pdb",
-        "integrity": "sha256-Dck/UQ+QyXqkdZ3Ot/jO5nAHX5Dk7Z2muVMLpYBI7VA="
+        "name": "Shell.Client.cqv5yqree2.pdb",
+        "integrity": "sha256-HJaLymTFbKK1/V5IxEoWQ1LJjUYWe0O4k6XSjVUOGQQ="
       }
     ],
     "libraryInitializers": [

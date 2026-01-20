@@ -10,6 +10,7 @@
     <ProjectReference Include="..\Shell.Client\Shell.Client.csproj" />
     <ProjectReference Include="..\Products.Client\Products.Client.csproj" />
     <ProjectReference Include="..\Orders.Client\Orders.Client.csproj" />
+    <ProjectReference Include="..\Customers.Client\Customers.Client.csproj" />
   </ItemGroup> 
 
   <ItemGroup>

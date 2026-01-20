@@ -83,6 +83,13 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/orders"
 });
 
+// CUSTOMERS MFE
+app.UseBlazorFrameworkFiles("/customers");
+app.UseStaticFiles(new StaticFileOptions
+{
+    RequestPath = "/customers",
+});
+
 
 
 // 🔐 ENDPOINTS AUTH
@@ -124,5 +131,6 @@ app.MapGet("/auth/me", (HttpContext ctx) =>
 app.MapFallbackToFile("/{*path:nonfile}", "index.html");
 app.MapFallbackToFile("/products/{*path:nonfile}", "products/index.html");
 app.MapFallbackToFile("/orders/{*path:nonfile}", "orders/index.html");
+app.MapFallbackToFile("/customers/{*path:nonfile}", "customers/index.html");
 
 app.Run();
