@@ -1,5 +1,12 @@
 
 services:
+  host:
+    build: 
+      context: .
+      dockerfile: Host/Dockerfile
+    container_name: host
+    expose:
+      - "80"
   shell:
     build:
       context: .
@@ -31,6 +38,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
+      - host
       - shell
       - products
       - orders

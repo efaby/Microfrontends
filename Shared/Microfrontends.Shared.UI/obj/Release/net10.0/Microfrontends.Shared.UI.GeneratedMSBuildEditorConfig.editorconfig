@@ -1,0 +1,51 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows,browser
+build_property.RootNamespace = Microfrontends.Shared.UI
+build_property.RootNamespace = Microfrontends.Shared.UI
+build_property.ProjectDir = /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/AppShell.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwU2hlbGwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Components/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9OYXZNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Components/SideMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaWRlTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Components/TopBar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Ub3BCYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Components/UserAvatarMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vc2VyQXZhdGFyTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Layout/SharedMainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L1NoYXJlZE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
