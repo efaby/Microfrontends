@@ -7,6 +7,8 @@ using System.Security.Claims;
 var builder = WebApplication.CreateBuilder(args);
 
 // 🔐 AUTH
+var authConfig = builder.Configuration.GetSection("Auth");
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -20,18 +22,17 @@ builder.Services.AddAuthentication(options =>
 })
 .AddOpenIdConnect(options =>
 {
-    options.Authority = "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_vKyR3m62e";
-    options.ClientId = "3eeoatinh81guqpugrellkortg";
-    options.ClientSecret = "1qmniup7jush3sc49k984cvqvrvo8d258boflrsosm1djpa2jod0";
+    options.Authority = authConfig["Authority"];
+    options.ClientId = authConfig["ClientId"];
+    options.ClientSecret = authConfig["ClientSecret"];
     options.ResponseType = "code";
 
     options.Scope.Add("openid");
     options.Scope.Add("email");
     options.Scope.Add("profile");
 
-    options.CallbackPath = "/signin-oidc";
-    options.SignedOutCallbackPath = "/signout-callback-oidc";
-
+    options.CallbackPath = authConfig["CallbackPath"];
+    options.SignedOutCallbackPath = authConfig["SignedOutCallbackPath"];
     options.TokenValidationParameters = new()
     {
         NameClaimType = "cognito:username",

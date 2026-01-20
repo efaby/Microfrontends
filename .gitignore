@@ -1,59 +1,32 @@
-####################################
-# .NET
-####################################
-bin/
-obj/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-*.rsuser
-*.cache
-*.log
-
-####################################
-# Blazor / WebAssembly
-####################################
-wwwroot/_framework/
-wwwroot/_content/
-wwwroot/service-worker-assets.js
-
-####################################
-# Publish / Build artifacts
-####################################
-publish/
-artifacts/
-dist/
-out/
-
-####################################
-# Docker
-####################################
-**/Dockerfile.override
-docker-compose.override.yml
-.env
-.env.*
-
-####################################
-# Logs
-####################################
-logs/
-*.log
-
-####################################
-# Secrets / Config
-####################################
-appsettings.Development.json
-appsettings.Local.json
-secrets.json
-*.pfx
-
-####################################
-# IDEs
-####################################
+# =========================
+# .NET / Visual Studio
+# =========================
+**/bin/
+**/obj/
+.vs/
 .vscode/
-.idea/
-*.iml
-*.sln.DotSettings*
 
-###############################
+# Rider / JetBrains
+.idea/
+
+# =========================
+# Blazor / WASM
+# =========================
+**/wwwroot/_framework/
+**/wwwroot/service-worker-assets.js
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Docker
+# =========================
+**/docker-compose.override.yml
+
+# =========================
+# Logs
+# =========================
+*.log
