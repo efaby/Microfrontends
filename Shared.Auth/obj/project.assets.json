@@ -280,6 +280,16 @@
             "related": ".xml"
           }
         }
+      },
+      "Microfrontends.Shared.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Microfrontends.Shared.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Microfrontends.Shared.Core.dll": {}
+        }
       }
     }
   },
@@ -743,10 +753,16 @@
         "microsoft.jsinterop.10.0.2.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
+    },
+    "Microfrontends.Shared.Core/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Microfrontends.Shared.Core/Microfrontends.Shared.Core.csproj",
+      "msbuildProject": "../Shared/Microfrontends.Shared.Core/Microfrontends.Shared.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Microfrontends.Shared.Core >= 1.0.0",
       "Microsoft.AspNetCore.Components.Authorization >= 10.0.2",
       "Microsoft.JSInterop >= 10.0.2"
     ]
@@ -775,7 +791,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.Core/Microfrontends.Shared.Core.csproj": {
+              "projectPath": "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.Core/Microfrontends.Shared.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

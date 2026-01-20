@@ -1,0 +1,28 @@
+﻿@page "/profile"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView>
+    <Authorized>
+        <h3>Perfil del usuario</h3>
+
+        <p><b>Nombre:</b> @context.User.Identity!.Name</p>
+
+        <ul>
+            @foreach (var claim in context.User.Claims)
+            {
+                <li><b>@claim.Type</b>: @claim.Value</li>
+            }
+        </ul>
+    </Authorized>
+
+    <NotAuthorized>
+        <h3>No estás autenticado</h3>
+        <button class="btn btn-primary" @onclick="Login">Iniciar sesión</button>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    [Inject] NavigationManager Nav { get; set; }
+
+    void Login() => Nav.NavigateTo("authentication/login", forceLoad: true);
+}

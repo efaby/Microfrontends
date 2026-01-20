@@ -1,0 +1,8 @@
+<CascadingValue Value="AppName">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter] public string AppName { get; set; } = "";
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

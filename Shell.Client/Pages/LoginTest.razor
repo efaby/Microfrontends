@@ -1,0 +1,26 @@
+﻿@page "/login-test"
+@inject HttpClient Http
+@inject Microfrontends.Shared.Core.Auth.IAuthService LSService
+@inject NavigationManager Nav
+
+<h3>Login</h3>
+
+<button class="btn btn-primary" @onclick="LoginAction">
+    Login
+</button>
+
+@code {
+    private async Task LoginAction()
+    {
+
+
+        var fakeJwt =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjMiLCJuYW1lIjoiRmFiaWFuIiwiZW1haWwiOiJmYWJpYW5AdGVzdC5jb20iLCJyb2xlIjpbIkFkbWluIl19.signature";
+
+        //await Auth.LoginWithJwtAsync(fakeJwt);
+        await LSService.SetAccessTokenAsync(fakeJwt);
+
+
+        Nav.NavigateTo("/", forceLoad: true);
+    }
+}

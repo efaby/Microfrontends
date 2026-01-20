@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Components.Authorization;
 using Products.Client;
 using Shared.Auth;
+using Shared.Auth.Extensions;
+
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -10,10 +12,13 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddAuthorizationCore();
+/*builder.Services.AddAuthorizationCore();
 
 builder.Services.AddScoped<SharedAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(
-    sp => sp.GetRequiredService<SharedAuthenticationStateProvider>());
+    sp => sp.GetRequiredService<SharedAuthenticationStateProvider>());*/
+
+builder.Services.AddMicrofrontendCore(builder.Configuration);
+builder.Services.AddSharedAuth();
 
 await builder.Build().RunAsync();

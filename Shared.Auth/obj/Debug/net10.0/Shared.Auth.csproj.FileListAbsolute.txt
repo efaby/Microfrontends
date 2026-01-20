@@ -1,11 +1,15 @@
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/bin/Debug/net10.0/Shared.Auth.deps.json
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/bin/Debug/net10.0/Shared.Auth.dll
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/bin/Debug/net10.0/Shared.Auth.pdb
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/bin/Debug/net10.0/Microfrontends.Shared.Core.dll
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/bin/Debug/net10.0/Microfrontends.Shared.Core.pdb
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.csproj.AssemblyReference.cache
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.GeneratedMSBuildEditorConfig.editorconfig
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.AssemblyInfoInputs.cache
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.AssemblyInfo.cs
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.csproj.CoreCompileInputs.cache
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.sourcelink.json
+/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.A.A2B5E94C.Up2Date
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.dll
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/refint/Shared.Auth.dll
 /Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/obj/Debug/net10.0/Shared.Auth.pdb

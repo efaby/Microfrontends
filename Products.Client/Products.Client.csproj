@@ -14,6 +14,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shared.Auth\Shared.Auth.csproj" />
+    <ProjectReference Include="..\Shared\Microfrontends.Shared.UI\Microfrontends.Shared.UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model/" />
   </ItemGroup>
 
   <PropertyGroup>

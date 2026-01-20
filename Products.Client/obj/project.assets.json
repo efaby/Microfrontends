@@ -559,10 +559,35 @@
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
         }
       },
+      "Microfrontends.Shared.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Microfrontends.Shared.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Microfrontends.Shared.Core.dll": {}
+        }
+      },
+      "Microfrontends.Shared.UI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microfrontends.Shared.Core": "1.0.0",
+          "Microsoft.AspNetCore.Components.Web": "10.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Microfrontends.Shared.UI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Microfrontends.Shared.UI.dll": {}
+        }
+      },
       "Shared.Auth/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "Microfrontends.Shared.Core": "1.0.0",
           "Microsoft.AspNetCore.Components.Authorization": "10.0.2",
           "Microsoft.JSInterop": "10.0.2"
         },
@@ -1132,10 +1157,35 @@
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
         }
       },
+      "Microfrontends.Shared.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Microfrontends.Shared.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Microfrontends.Shared.Core.dll": {}
+        }
+      },
+      "Microfrontends.Shared.UI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microfrontends.Shared.Core": "1.0.0",
+          "Microsoft.AspNetCore.Components.Web": "10.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Microfrontends.Shared.UI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Microfrontends.Shared.UI.dll": {}
+        }
+      },
       "Shared.Auth/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "Microfrontends.Shared.Core": "1.0.0",
           "Microsoft.AspNetCore.Components.Authorization": "10.0.2",
           "Microsoft.JSInterop": "10.0.2"
         },
@@ -2201,6 +2251,16 @@
         "tools/net472/Microsoft.NET.WebAssembly.Webcil.dll"
       ]
     },
+    "Microfrontends.Shared.Core/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Microfrontends.Shared.Core/Microfrontends.Shared.Core.csproj",
+      "msbuildProject": "../Shared/Microfrontends.Shared.Core/Microfrontends.Shared.Core.csproj"
+    },
+    "Microfrontends.Shared.UI/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Microfrontends.Shared.UI/Microfrontends.Shared.UI.csproj",
+      "msbuildProject": "../Shared/Microfrontends.Shared.UI/Microfrontends.Shared.UI.csproj"
+    },
     "Shared.Auth/1.0.0": {
       "type": "project",
       "path": "../Shared.Auth/Shared.Auth.csproj",
@@ -2209,6 +2269,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Microfrontends.Shared.UI >= 1.0.0",
       "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.1",
       "Microsoft.AspNetCore.Components.WebAssembly >= 10.0.1",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 10.0.1",
@@ -2245,6 +2306,9 @@
           "projectReferences": {
             "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/Shared.Auth.csproj": {
               "projectPath": "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared.Auth/Shared.Auth.csproj"
+            },
+            "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Microfrontends.Shared.UI.csproj": {
+              "projectPath": "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/Microfrontends.Shared.UI.csproj"
             }
           }
         }

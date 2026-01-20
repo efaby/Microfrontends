@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/wwwroot/background.png",
+      "PackagePath": "staticwebassets/background.png"
+    },
+    {
+      "Id": "/Users/fabianvilla/Documents/CoreNet10/Microfrontends/Shared/Microfrontends.Shared.UI/wwwroot/css/shared.css",
+      "PackagePath": "staticwebassets/css/shared.css"
+    },
+    {
+      "Id": "obj/Debug/net10.0/staticwebassets/msbuild.Microfrontends.Shared.UI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net10.0/staticwebassets/msbuild.Microfrontends.Shared.UI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net10.0/staticwebassets/msbuild.build.Microfrontends.Shared.UI.props",
+      "PackagePath": "build\\Microfrontends.Shared.UI.props"
+    },
+    {
+      "Id": "obj/Debug/net10.0/staticwebassets/msbuild.buildMultiTargeting.Microfrontends.Shared.UI.props",
+      "PackagePath": "buildMultiTargeting\\Microfrontends.Shared.UI.props"
+    },
+    {
+      "Id": "obj/Debug/net10.0/staticwebassets/msbuild.buildTransitive.Microfrontends.Shared.UI.props",
+      "PackagePath": "buildTransitive\\Microfrontends.Shared.UI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

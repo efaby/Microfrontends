@@ -1,0 +1,49 @@
+@inject Microfrontends.Shared.Core.Auth.IAuthService AuthService
+@inject NavigationManager Nav
+
+<nav class="nav-menu">
+    @if (!_isAuthenticated)
+    {
+        <button @onclick="GoToLogin">Login</button>
+    }
+    else
+    {
+        <span class="user">✔ Autenticado</span>
+        <button @onclick="Logout">Logout</button>
+    }
+</nav>
+
+<nav class="sidebar">
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/orders/list-orders">Orders</a>
+        </li>
+        <li>
+            <a href="/products/">Products</a>
+        </li>
+    </ul>
+</nav>
+
+@code {
+    private bool _isAuthenticated;
+
+    void GoToLogin()
+    {
+        Nav.NavigateTo("/login", forceLoad: true);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isAuthenticated = await AuthService.IsAuthenticatedAsync();
+        Console.WriteLine($"IsAuthenticated: {_isAuthenticated}");
+    }
+
+    private async Task Logout()
+    {
+        await AuthService.LogoutAsync();
+        Nav.NavigateTo("/", forceLoad: true);
+    }
+}

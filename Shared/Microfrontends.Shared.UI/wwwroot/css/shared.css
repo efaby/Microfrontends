@@ -1,0 +1,14 @@
+@import url("adminlte.min.css");
+
+.sidebar {
+    width: 240px;
+    height: 100%;
+}
+
+.sidebar .nav-link {
+    border-radius: 0.5rem;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #495057;
+}

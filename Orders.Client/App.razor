@@ -1,6 +1,12 @@
-﻿<Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
-    </Found>
-</Router>
+﻿<AppShell AppName="Orders">
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(SharedMainLayout)" />
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(SharedMainLayout)">
+                <p>Page not found</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</AppShell>

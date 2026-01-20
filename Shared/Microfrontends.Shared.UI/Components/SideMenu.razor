@@ -1,0 +1,22 @@
+﻿@inject NavigationManager Nav
+
+<nav class="bg-dark text-white sidebar p-3">
+    <h5 class="mb-4">Microfrontends</h5>
+    <hr>
+    <ul class="nav nav-pills flex-column gap-2">
+        <li class="nav-item">
+            <a class="nav-link text-white" @onclick="@(() => GoTo("/"))">🏠 Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" @onclick="@(() => GoTo("/orders/list-orders"))">📦 Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" @onclick="@(() => GoTo("/products/"))">🛒 Products</a>
+        </li>
+    </ul>
+</nav>
+
+@code {
+    void GoTo(string url)
+    => Nav.NavigateTo(url, forceLoad: true);
+}

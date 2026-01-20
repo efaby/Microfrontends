@@ -23,3 +23,5 @@ RUN dotnet publish Shell.Client/Shell.Client.csproj \
 
 FROM nginx:alpine
 COPY --from=build /app/wwwroot /usr/share/nginx/html
+
+COPY Shell.Client/nginx.conf /etc/nginx/nginx.conf
