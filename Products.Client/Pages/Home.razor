@@ -1,7 +1,8 @@
 ﻿@page "/"
 @using Microfrontends.Shared.Core.Context
 @using Products.Client.Model
-@inject Microfrontends.Shared.Core.Auth.IAuthService LSService
+@using Microfrontends.Shared.Core.Auth
+@inject IAuthClient Auth
 
 @inject NavigationManager Navigation
 <PageTitle>Products</PageTitle>
@@ -12,6 +13,10 @@
             <h3 class="text-primary">
                 <i class="bi bi-box-seam"></i> Product Catalog
             </h3>
+            @if (_isAuthenticated)
+            {
+                <h6>Hola <strong>@_user?.Name</strong>!</h6>
+            }
         </div>
         <div class="col-auto">
             <input type="text" class="form-control" placeholder="Search products..." @bind="searchTerm"
@@ -145,20 +150,13 @@ Stock = 25
         Navigation.NavigateTo("/products/create");
     }
 
-    private IUserContext auth;
+    private UserDto _user;
     private bool _isAuthenticated;
 
     protected override async Task OnInitializedAsync()
     {
-        _isAuthenticated = await LSService.IsAuthenticatedAsync();
-        if (_isAuthenticated)
-        {
-            auth = await LSService.GetUserAsync();
-        }
+        _user = await Auth.GetCurrentUserAsync();
+        _isAuthenticated = _user != null;
     }
-    private async Task Logout()
-    {
-        await LSService.LogoutAsync();
-        Navigation.NavigateTo("/");
-    }
+
 }

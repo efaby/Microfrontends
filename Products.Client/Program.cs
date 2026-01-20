@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.AspNetCore.Components.Authorization;
 using Products.Client;
-using Shared.Auth;
-using Shared.Auth.Extensions;
+using Shared.Auth.AuthCognito;
+using Microsoft.AspNetCore.Components;
 
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -12,13 +11,18 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-/*builder.Services.AddAuthorizationCore();
+builder.Services.AddAuthorizationCore();
 
-builder.Services.AddScoped<SharedAuthenticationStateProvider>();
-builder.Services.AddScoped<AuthenticationStateProvider>(
-    sp => sp.GetRequiredService<SharedAuthenticationStateProvider>());*/
+builder.Services.AddScoped(sp =>
+{
+    var nav = sp.GetRequiredService<NavigationManager>();
 
-builder.Services.AddMicrofrontendCore(builder.Configuration);
+    return new HttpClient
+    {
+        BaseAddress = new Uri(nav.BaseUri + "../")
+    };
+});
+
 builder.Services.AddSharedAuth();
 
 await builder.Build().RunAsync();
