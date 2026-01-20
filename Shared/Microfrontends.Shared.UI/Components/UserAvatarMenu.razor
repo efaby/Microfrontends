@@ -40,9 +40,8 @@
     void Login()
     => Nav.NavigateTo("/login", forceLoad: true);
 
-    void Logout()
+    async Task Logout()
     {
-        Console.WriteLine("Logging out...");
         Nav.NavigateTo("/logout", forceLoad: true);
     }
 }

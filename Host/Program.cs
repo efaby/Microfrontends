@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Components.WebAssembly.Server;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -90,6 +88,7 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.MapGet("/login", (HttpContext ctx) =>
 {
+    Console.WriteLine("Processing login...");
     return Results.Challenge(
         new AuthenticationProperties { RedirectUri = "/" },
         new[] { OpenIdConnectDefaults.AuthenticationScheme }
@@ -100,7 +99,10 @@ app.MapGet("/logout", async (HttpContext ctx) =>
 {
     await ctx.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     await ctx.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);
+
+    return Results.Redirect("/logged-out");
 });
+
 
 app.MapGet("/auth/me", (HttpContext ctx) =>
 {
