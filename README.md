@@ -125,6 +125,9 @@ Access to:
 - Docker / Docker Compose
 - AWS account with Cognito configured
 
+## 🛠️ Add new Blazor WASM
+
+[Click here to view the Host Configuration Guide](./Host/README.md)
 
 ## 📄 License
 

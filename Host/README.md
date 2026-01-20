@@ -2,54 +2,49 @@
 
 This guide outlines the steps required to add and configure a new **Customers Client** microfrontend (MFE) within a Blazor WebAssembly host environment.
 
-## 🚀 1. Project Initialization
-
 Create the project and add it to your solution via the CLI:
 
-\`\`\`bash
+```bash
 dotnet new blazorwasm -n Customers.Client
 dotnet sln add Customers.Client
-\`\`\`
+```
 
-### Host Registration
+#### Host Project File (Host.csproj)
 In your **Host.csproj**, add the project reference:
 
-\`\`\`xml
+```xml
 <ProjectReference Include="..\\Customers.Client\\Customers.Client.csproj" />
-\`\`\`
+```
 
 ---
 
-## 🛠️ 2. Configuration & Routing
 
-### Host Program.cs
+#### Host - Program.cs
 Configure the middleware to serve the MFE from a specific request path:
 
-\`\`\`csharp
+```csharp
 // CUSTOMERS MFE Configuration
 app.UseBlazorFrameworkFiles("/customers");
 app.UseStaticFiles(new StaticFileOptions
 {
     RequestPath = "/customers",
 });
-\`\`\`
+```
 
-### Client Index.html
-Update the base path and global assets in \`Customers.Client/wwwroot/index.html\`:
+#### Customers - Index.html
+Update the base path and global assets in `Customers.Client/wwwroot/index.html`:
 
-* **Update Base Path:** \`<base href="/customers/" />\`
+* **Update Base Path:** `<base href="/customers/" />`
 * **Add Styles & Scripts:**
-\`\`\`html
+```html
 <link href="_content/Microfrontends.Shared.UI/css/shared.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-\`\`\`
+```
 
 ---
 
-## 🎨 3. UI & Template Integration
-
-### Layout Implementation (App.razor)
-\`\`\`razor
+#### Customers - Layout Implementation (App.razor)
+```razor
 <AppShell AppName="Customers">
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
@@ -58,23 +53,21 @@ Update the base path and global assets in \`Customers.Client/wwwroot/index.html\
         </Found>
     </Router>
 </AppShell>
-\`\`\`
+```
 
-### Shared Imports (_Imports.razor)
-\`\`\`razor
+#### Customers - Shared Imports (_Imports.razor)
+```razor
 @using Microfrontends.Shared.UI
 @using Microfrontends.Shared.UI.Layout
 @using Microfrontends.Shared.UI.Components
-\`\`\`
+```
 
-> **Note:** Delete the default \`Layout\` folder and keep only \`Home.razor\` in the Pages folder.
+> **Note:** Delete the default `Layout` folder and keep only `Home.razor` in the Pages folder.
 
 ---
 
-## ⚙️ 4. Dependency Injection & Project Specs
-
-### Client Program.cs
-\`\`\`csharp
+#### Customers - Program.cs
+```csharp
 builder.Services.AddAuthorizationCore();
 
 builder.Services.AddScoped(sp =>
@@ -82,15 +75,15 @@ builder.Services.AddScoped(sp =>
     var nav = sp.GetRequiredService<NavigationManager>();
     return new HttpClient
     {
-        BaseAddress = new Uri(nav.BaseUri)
+        BaseAddress = new Uri(nav.BaseUri + "../")
     };
 });
 
 builder.Services.AddSharedAuth();
-\`\`\`
+```
 
-### Project File (Customers.Client.csproj)
-\`\`\`xml
+#### Customers - Project File (Customers.Client.csproj)
+```xml
 <PropertyGroup>
     <StaticWebAssetBasePath>customers</StaticWebAssetBasePath>
     <StaticWebAssetFingerprintingEnabled>false</StaticWebAssetFingerprintingEnabled>
@@ -102,15 +95,15 @@ builder.Services.AddSharedAuth();
     <ProjectReference Include="..\\Shared\\Microfrontends.Shared.Core\\Microfrontends.Shared.Core.csproj" />
     <ProjectReference Include="..\\Shared\\Microfrontends.Shared.UI\\Microfrontends.Shared.UI.csproj" />
 </ItemGroup>
-\`\`\`
+```
 
 ---
+#### Shared.UI - SideMenu
 
-## 🔗 5. Navigation Integration
-Add this to \`SideMenu.razor\`:
+Add this to `SideMenu.razor` in Shared/Microfrontends.Sahred.UI/Layout:
 
-\`\`\`razor
+```razor
 <li class="nav-item">
     <a class="nav-link text-white" @onclick="@(() => GoTo("/customers/"))"> Customers</a>
 </li>
-\`\`\`
+```
