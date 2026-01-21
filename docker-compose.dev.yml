@@ -30,13 +30,13 @@ services:
     expose:
       - "80"
 
-  orders:
-    build: 
-      context: .
-      dockerfile: Orders.Client/Dockerfile
-    container_name: orders-wasm
-    expose:
-      - "80"
+  #orders:
+  #  build: 
+  #    context: .
+  #    dockerfile: Orders.Client/Dockerfile
+  #  container_name: orders-wasm
+  #  expose:
+  #    - "80"
 
   customers:
     build: 
@@ -57,5 +57,5 @@ services:
       - host
       - shell
       - products
-      - orders
+      #- orders
       - customers
