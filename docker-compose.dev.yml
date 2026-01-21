@@ -1,4 +1,3 @@
-
 services:
   host:
     build: 
@@ -6,6 +5,7 @@ services:
       dockerfile: Host/Dockerfile
     container_name: host-auth
     environment:
+      ASPNETCORE_ENVIRONMENT: Development
       Auth__Authority: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_vKyR3m62e
       Auth__ClientId: 3eeoatinh81guqpugrellkortg
       Auth__ClientSecret: 1qmniup7jush3sc49k984cvqvrvo8d258boflrsosm1djpa2jod0
@@ -15,29 +15,29 @@ services:
       - "8080"
 
   shell:
-    build:
+    build: 
       context: .
       dockerfile: Shell.Client/Dockerfile
-    container_name: shell
+    container_name: shell-wasm
     expose:
       - "80"
 
   products:
-    build:
+    build: 
       context: .
       dockerfile: Products.Client/Dockerfile
-    container_name: products
+    container_name: products-wasm
     expose:
       - "80"
 
   orders:
-    build:
+    build: 
       context: .
       dockerfile: Orders.Client/Dockerfile
-    container_name: orders
+    container_name: orders-wasm
     expose:
       - "80"
-  
+
   customers:
     build: 
       context: .
@@ -46,12 +46,13 @@ services:
     expose:
       - "80"
 
-  gateway:
+  nginx:
     image: nginx:alpine
+    container_name: nginx-gateway
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - host
       - shell

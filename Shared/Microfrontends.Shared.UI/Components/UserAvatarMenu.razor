@@ -38,10 +38,10 @@
 
 
     void Login()
-    => Nav.NavigateTo("/login", forceLoad: true);
+    => Nav.NavigateTo("/auth/login", forceLoad: true);
 
     async Task Logout()
     {
-        Nav.NavigateTo("/logout", forceLoad: true);
+        Nav.NavigateTo("/auth/logout", forceLoad: true);
     }
 }
