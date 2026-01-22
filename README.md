@@ -1,5 +1,9 @@
 # Microfrontends with Blazor WebAssembly and Cognito
 
+<img width="1503" height="800" alt="Screenshot 2026-01-22 at 4 15 17 PM" src="https://github.com/user-attachments/assets/1c95088e-6e5a-4b2c-a753-218c7edf417d" />
+
+
+
 This repository demonstrates a **Microfrontend architecture using Blazor WebAssembly**, secured with **AWS Cognito (OpenID Connect)** and deployed using **Docker and NGINX**.
 
 The system is designed with a **single authentication host** and multiple **independently deployable microfrontends**.
