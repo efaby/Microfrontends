@@ -21,6 +21,7 @@ Shared/**/obj/
 # OS
 # =========================
 .DS_Store
+Shared/.DS_Store
 Thumbs.db
 
 # =========================
