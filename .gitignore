@@ -3,6 +3,8 @@
 # =========================
 **/bin/
 **/obj/
+Shared/**/bin/
+Shared/**/obj/
 .vs/
 .vscode/
 
