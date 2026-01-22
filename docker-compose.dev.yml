@@ -3,12 +3,11 @@ services:
     build: 
       context: .
       dockerfile: Host/Dockerfile
-    container_name: host-auth
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      Auth__Authority: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_vKyR3m62e
-      Auth__ClientId: 3eeoatinh81guqpugrellkortg
-      Auth__ClientSecret: 1qmniup7jush3sc49k984cvqvrvo8d258boflrsosm1djpa2jod0
+      Auth__Authority: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_xxx
+      Auth__ClientId: xxxxxxx
+      Auth__ClientSecret: xxxxxxx
       Auth__CallbackPath: /signin-oidc
       Auth__SignedOutCallbackPath: /signout-callback-oidc
     expose:
@@ -18,7 +17,6 @@ services:
     build: 
       context: .
       dockerfile: Shell.Client/Dockerfile
-    container_name: shell-wasm
     expose:
       - "80"
 
@@ -26,7 +24,6 @@ services:
   #  build: 
   #    context: .
   #    dockerfile: Products.Client/Dockerfile
-  #  container_name: products-wasm
   #  expose:
   #    - "80"
 
@@ -34,7 +31,6 @@ services:
   #  build: 
   #    context: .
   #    dockerfile: Orders.Client/Dockerfile
-  #  container_name: orders-wasm
   #  expose:
   #    - "80"
 
@@ -42,13 +38,11 @@ services:
     build: 
       context: .
       dockerfile: Customers.Client/Dockerfile
-    container_name: customers-wasm
     expose:
       - "80"
 
   nginx:
     image: nginx:alpine
-    container_name: nginx-gateway
     ports:
       - "80:80"
     volumes:
