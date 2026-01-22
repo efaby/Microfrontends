@@ -1,25 +1,25 @@
-events {}
-
-http {
   server {
     listen 80;
-    server_name app.localhost;
+    server_name dev.localhost;
 
-    # 🔹 SHELL
     location / {
       proxy_pass http://shell/;
       proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # 🔹 PRODUCTS
     location /products/ {
       proxy_pass http://products/;
       proxy_set_header Host $host;
     }
 
-    # 🔹 ORDERS
     location /orders/ {
-      proxy_pass http://orders/;
+      proxy_pass http://${ORDERS_UPSTREAM}/;
+      proxy_set_header Host $host;
+    }
+
+    location /customers/ {
+      proxy_pass http://customers/;
       proxy_set_header Host $host;
     }
 
@@ -29,6 +29,4 @@ http {
       proxy_set_header X-Forwarded-Proto $scheme;
       proxy_set_header X-Forwarded-For $remote_addr;
     }
-
   }
-}

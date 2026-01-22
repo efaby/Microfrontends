@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Microfrontends.Shared.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb866db960d2fba187e20c400feccb92f680439c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de3b4654a0fdf917bc88309410c9ae97b3f20979")]
 [assembly: System.Reflection.AssemblyProductAttribute("Microfrontends.Shared.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Microfrontends.Shared.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

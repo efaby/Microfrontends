@@ -19,6 +19,10 @@ builder.Services.AddAuthentication(options =>
     options.Cookie.Name = "__Host-auth";
     options.Cookie.SameSite = SameSiteMode.None;
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    if (!builder.Environment.IsDevelopment())
+    {
+        options.Cookie.Domain = ".midominio.com";
+    }
 })
 .AddOpenIdConnect(options =>
 {
@@ -63,47 +67,41 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ==== TU CÓDIGO (sin tocar lógica) ====
-
-// SHELL
-app.UseBlazorFrameworkFiles();
-app.UseStaticFiles();
-
-// PRODUCTS MFE
-app.UseBlazorFrameworkFiles("/products");
-app.UseStaticFiles(new StaticFileOptions
+if (app.Environment.IsDevelopment())
 {
-    RequestPath = "/products"
-});
+    app.MapGet("/auth/dev-login", async (HttpContext ctx) =>
+    {
+        var claims = new[]
+        {
+            new Claim(ClaimTypes.Name, "dev-user"),
+            new Claim(ClaimTypes.Email, "dev@local"),
+            new Claim("cognito:username", "dev-user")
+        };
 
-// ORDERS MFE
-app.UseBlazorFrameworkFiles("/orders");
-app.UseStaticFiles(new StaticFileOptions
-{
-    RequestPath = "/orders"
-});
+        var identity = new ClaimsIdentity(
+            claims,
+            CookieAuthenticationDefaults.AuthenticationScheme);
 
-// CUSTOMERS MFE
-app.UseBlazorFrameworkFiles("/customers");
-app.UseStaticFiles(new StaticFileOptions
-{
-    RequestPath = "/customers",
-});
+        await ctx.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(identity));
 
+        return Results.Redirect("/");
+    });
+}
 
 
 // 🔐 ENDPOINTS AUTH
 
-app.MapGet("/login", (HttpContext ctx) =>
+app.MapGet("/auth/login", (HttpContext ctx) =>
 {
-    Console.WriteLine("Processing login...");
     return Results.Challenge(
         new AuthenticationProperties { RedirectUri = "/" },
         new[] { OpenIdConnectDefaults.AuthenticationScheme }
     );
 });
 
-app.MapGet("/logout", async (HttpContext ctx) =>
+app.MapGet("/auth/logout", async (HttpContext ctx) =>
 {
     await ctx.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     await ctx.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);
@@ -125,12 +123,5 @@ app.MapGet("/auth/me", (HttpContext ctx) =>
         subject = ctx.User.FindFirst(ClaimTypes.NameIdentifier)?.Value
     });
 });
-
-
-// FALLBACKS
-app.MapFallbackToFile("/{*path:nonfile}", "index.html");
-app.MapFallbackToFile("/products/{*path:nonfile}", "products/index.html");
-app.MapFallbackToFile("/orders/{*path:nonfile}", "orders/index.html");
-app.MapFallbackToFile("/customers/{*path:nonfile}", "customers/index.html");
 
 app.Run();

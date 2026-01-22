@@ -39,22 +39,13 @@ The system is designed with a **single authentication host** and multiple **inde
 
 | Endpoint        | Description |
 |----------------|------------|
-| `/login`        | Initiates login with Cognito |
-| `/logout`       | Logs out user |
+| `/auth/login`        | Initiates login with Cognito |
+| `/auth/logout`       | Logs out user |
 | `/auth/me`      | Returns authenticated user |
 | `/signin-oidc`  | OIDC callback |
 | `/signout-callback-oidc` | Logout callback |
 
 ---
-
-## 🧠 Authentication Flow
-
-1. MFE redirects to `/login`
-2. Cognito authenticates the user
-3. Cognito returns to `Host`
-4. Cookie is saved in the browser
-5. MFEs query `/auth/me`
-6. User available in all MFEs
 
 ## ⚙️ Configuration via Environment Variables
 
@@ -102,32 +93,57 @@ COGNITO_CLIENT_SECRET=xxxx
 
 ---
 
-
----
-
 ## 🧪 Local Development
 
-```bash
-dotnet restore
-dotnet build
-dotnet run --project Host
-```
+This repository hosts a **microfrontend platform** built with:
 
-Access to:
-
-- http://localhost:5001
+- Blazor WebAssembly (Shell + MFEs)
+- .NET Host for Authentication (Cognito + Cookies)
+- NGINX as a Gateway / Router
+- Docker for local and production environments
 
 ---
 
-## 📦 Requisites
+### Development Modes
 
-- .NET 10
-- Docker / Docker Compose
-- AWS account with Cognito configured
+### Hybrid Development (Recommended)
 
-## 🛠️ Add new Blazor WASM
+You can run some WASM microfrontends **locally with `dotnet watch`** while others run in Docker.
+This enables very fast inner-loop development.
 
-[Click here to view the Host Configuration Guide](./Host/README.md)
+➡️ **Read the full guide here:**  
+[`docs/dev-hybrid.md`](docs/dev-hybrid.md)
+
+Supported hybrid scenarios:
+- Orders running locally
+- Orders + Products running locally
+- All other MFEs in Docker
+
+---
+
+### Quick Start (Hybrid)
+
+```bash
+docker compose -f docker-compose.dev.yml up -d
+cd Orders.Client
+dotnet watch run
+```
+
+Open:
+
+```
+http://dev.localhost
+```
+
+---
+
+### Documentation
+
+- `docs/dev-hybrid.md` – Hybrid development with NGINX + Docker
+- `docker-compose.dev.yml` – Development environment
+- `nginx.dev.conf.template` – NGINX routing template
+
+---
 
 ## 📄 License
 
