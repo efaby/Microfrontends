@@ -132,7 +132,7 @@ dotnet watch run
 Open:
 
 ```
-http://dev.localhost
+http://localhost
 ```
 
 ---
@@ -144,6 +144,10 @@ http://dev.localhost
 - `nginx.dev.conf.template` – NGINX routing template
 
 ---
+
+# 🛠️ Add new Blazor WASM
+
+[Click here to view the Host Configuration Guide](./Host/README.md)
 
 ## 📄 License
 

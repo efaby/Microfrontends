@@ -13,7 +13,7 @@ This document explains how to run a **hybrid development environment** where:
 Review this line or add 
 
 ```bash
-127.0.0.1 dev.localhost
+127.0.0.1 localhost
 ```
 
 ## Supported Scenarios
@@ -62,7 +62,7 @@ NGINX Gateway (Docker)
 ```nginx
 server {
   listen 80;
-  server_name dev.localhost;
+  server_name localhost;
 
   location / {
     proxy_pass http://shell:80/;

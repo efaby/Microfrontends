@@ -1,6 +1,25 @@
   server {
     listen 80;
-    server_name dev.localhost;
+    server_name localhost;
+
+    proxy_buffer_size          128k;
+    proxy_buffers              4 256k;
+    proxy_busy_buffers_size    256k;
+
+    large_client_header_buffers 4 32k;  
+
+    # 🔑 OIDC callbacks (NO van bajo /auth)
+    location /signin-oidc {
+      proxy_pass http://host:8080/signin-oidc;
+      proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /signout-callback-oidc {
+      proxy_pass http://host:8080/signout-callback-oidc;
+      proxy_set_header Host $host;
+      proxy_set_header X-Forwarded-Proto $scheme;
+    }
 
     location / {
       proxy_pass http://shell/;
@@ -9,7 +28,7 @@
     }
 
     location /products/ {
-      proxy_pass http://products/;
+      proxy_pass http://${PRODUCTS_UPSTREAM}/;
       proxy_set_header Host $host;
     }
 
@@ -29,4 +48,7 @@
       proxy_set_header X-Forwarded-Proto $scheme;
       proxy_set_header X-Forwarded-For $remote_addr;
     }
+
+    
+
   }

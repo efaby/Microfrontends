@@ -9,8 +9,8 @@ services:
       Auth__Authority: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_vKyR3m62e
       Auth__ClientId: 3eeoatinh81guqpugrellkortg
       Auth__ClientSecret: 1qmniup7jush3sc49k984cvqvrvo8d258boflrsosm1djpa2jod0
-      Auth__CallbackPath: /auth/callback
-      Auth__SignedOutCallbackPath: /auth/logout
+      Auth__CallbackPath: /signin-oidc
+      Auth__SignedOutCallbackPath: /signout-callback-oidc
     expose:
       - "8080"
 
@@ -22,13 +22,13 @@ services:
     expose:
       - "80"
 
-  products:
-    build: 
-      context: .
-      dockerfile: Products.Client/Dockerfile
-    container_name: products-wasm
-    expose:
-      - "80"
+  #products:
+  #  build: 
+  #    context: .
+  #    dockerfile: Products.Client/Dockerfile
+  #  container_name: products-wasm
+  #  expose:
+  #    - "80"
 
   #orders:
   #  build: 
@@ -55,9 +55,10 @@ services:
       - ./nginx.dev.conf.template:/etc/nginx/templates/default.conf.template:ro
     environment:
       ORDERS_UPSTREAM: host.docker.internal:6002
+      PRODUCTS_UPSTREAM: host.docker.internal:6001
     depends_on:
       - host
       - shell
-      - products
+      #- products
       #- orders
       - customers

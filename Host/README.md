@@ -9,28 +9,6 @@ dotnet new blazorwasm -n Customers.Client
 dotnet sln add Customers.Client
 ```
 
-#### Host Project File (Host.csproj)
-In your **Host.csproj**, add the project reference:
-
-```xml
-<ProjectReference Include="..\\Customers.Client\\Customers.Client.csproj" />
-```
-
----
-
-
-#### Host - Program.cs
-Configure the middleware to serve the MFE from a specific request path:
-
-```csharp
-// CUSTOMERS MFE Configuration
-app.UseBlazorFrameworkFiles("/customers");
-app.UseStaticFiles(new StaticFileOptions
-{
-    RequestPath = "/customers",
-});
-```
-
 #### Customers - Index.html
 Update the base path and global assets in `Customers.Client/wwwroot/index.html`:
 
