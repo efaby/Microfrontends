@@ -28,7 +28,7 @@
     }
 
     location /products/ {
-      proxy_pass http://${PRODUCTS_UPSTREAM}/;
+      proxy_pass http://products/;
       proxy_set_header Host $host;
     }
 
@@ -39,6 +39,11 @@
 
     location /customers/ {
       proxy_pass http://customers/;
+      proxy_set_header Host $host;
+    }
+
+    location /external/ {
+      proxy_pass http://${EXTERNAL_UPSTREAM}/;
       proxy_set_header Host $host;
     }
 

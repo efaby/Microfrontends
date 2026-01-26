@@ -5,9 +5,9 @@ services:
       dockerfile: Host/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      Auth__Authority: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_xxx
-      Auth__ClientId: xxxxxxx
-      Auth__ClientSecret: xxxxxxx
+      Auth__Authority: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_cMN49Q4ct
+      Auth__ClientId: 2941vjt4bh5h2roskh6bpu6cd6
+      Auth__ClientSecret: kfkmk5ij77joaocvic1trfalrsb4rdnjejudd4l61v4l212e5at
       Auth__CallbackPath: /signin-oidc
       Auth__SignedOutCallbackPath: /signout-callback-oidc
     expose:
@@ -20,12 +20,12 @@ services:
     expose:
       - "80"
 
-  #products:
-  #  build: 
-  #    context: .
-  #    dockerfile: Products.Client/Dockerfile
-  #  expose:
-  #    - "80"
+  products:
+    build: 
+      context: .
+      dockerfile: Products.Client/Dockerfile
+    expose:
+      - "80"
 
   #orders:
   #  build: 
@@ -50,9 +50,10 @@ services:
     environment:
       ORDERS_UPSTREAM: host.docker.internal:6002
       PRODUCTS_UPSTREAM: host.docker.internal:6001
+      EXTERNAL_UPSTREAM: host.docker.internal:5002
     depends_on:
       - host
       - shell
-      #- products
+      - products
       #- orders
       - customers
